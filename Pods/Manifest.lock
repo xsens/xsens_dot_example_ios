@@ -1,0 +1,20 @@
+PODS:
+  - MBProgressHUD (1.2.0)
+  - MJRefresh (3.4.1)
+
+DEPENDENCIES:
+  - MBProgressHUD (~> 1.2.0)
+  - MJRefresh
+
+SPEC REPOS:
+  trunk:
+    - MBProgressHUD
+    - MJRefresh
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
+
+PODFILE CHECKSUM: dbbb2a59dc456f945e41654b01e6135afe8db1fe
+
+COCOAPODS: 1.9.0
