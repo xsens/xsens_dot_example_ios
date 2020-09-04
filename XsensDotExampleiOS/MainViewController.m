@@ -22,7 +22,7 @@
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource, XsensDotConnectionDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *deviceList;
+@property (strong, nonatomic) NSMutableArray<XsensDotDevice *> *deviceList;
 @property (strong, nonatomic) NSMutableArray *connectList;
 @property (strong, nonatomic) UIButton *measureButton;
 
