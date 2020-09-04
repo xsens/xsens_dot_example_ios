@@ -7,7 +7,7 @@
 4. Please use a real iPhone to run with the sample code , the simulator will appear errors.
 
 ## Main methods
-* Scan XsensDot devices
+* Scan sensors
 
 1. Set the delegate
 ```
