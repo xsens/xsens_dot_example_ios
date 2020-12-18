@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setEnable:(BOOL)enable;
 + (BOOL)enable;
++ (void)setHandUp:(BOOL)enable;
 + (void)onManagerStateUpdated;
 + (void)onBoundDeviceCapacityModified;
 

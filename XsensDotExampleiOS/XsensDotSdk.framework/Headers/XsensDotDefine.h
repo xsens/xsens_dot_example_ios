@@ -50,6 +50,118 @@ typedef NS_ENUM(NSInteger, XSDotDeviceCalibrationType)
     XSDotDeviceCalibrationTypeDefault = XSDotDeviceCalibrationType7Steps,
 };
 
+#pragma mark - XSDotDeviceMFMResultTpye
+
+typedef NS_ENUM(NSUInteger, XSDotMFMResultTpye)
+{
+    XSDotMFMResultFailed = 0,
+    XSDotMFMResultBad,
+    XSDotMFMResultAcceptable,
+    XSDotMFMResultGood,
+};
+
+/*
+ PayloadMode of Measurement
+ */
+typedef NS_ENUM(NSInteger,XSBleDevicePayloadMode)
+{
+    XSBleDevicePayloadDefault = 0,
+    XSBleDevicePayloadInertialHighFidelityWithMag,
+    XSBleDevicePayloadExtendedQuaternion,
+    XSBleDevicePayloadCompleteQuaternion,
+    XSBleDevicePayloadOrientationEuler,
+    XSBleDevicePayloadOrientationQuaternion,
+    XSBleDevicePayloadFreeAcceleration,
+    XSBleDevicePayloadExtendedEuler, //new payload
+    XSBleDevicePayloadMFM = 15,
+    XSBleDevicePayloadCompleteEuler,
+    XSBleDevicePayloadHighFidelityNoMag,
+    XSBleDevicePayloadDeltaQuantitiesWithMag,
+    XSBleDevicePayloadDeltaQuantitiesNoMag,
+    XSBleDevicePayloadRateQuantitiesWithMag,
+    XSBleDevicePayloadRateQuantitiesNoMag,
+    XSBleDevicePayloadCustomMode1, //new payload
+    XSBleDevicePayloadCustomMode2, //new payload
+    XSBleDevicePayloadCustomMode3 //new payload
+};
+
+typedef NS_ENUM(NSUInteger, XSRecordingData)
+{
+    XSRecordingDataTimestamp = 0x00,
+    XSRecordingDataQuaternion,
+    XSRecordingDataIq,
+    XSRecordingDataIv, // 0x03
+    XSRecordingDataEulerAngles,
+    XSRecordingDataDq,
+    XSRecordingDataDv,
+    XSRecordingDataAcceleration,
+    XSRecordingDataAngularVelocity,
+    XSRecordingDataMagneticField,
+    XSRecordingDataStatus,//0x0a
+    XSRecordingDataClipCountAcc,
+    XSRecordingDataClipCountGyr,
+};
+
+typedef NS_ENUM(NSUInteger, XSHeadingStatus)
+{
+    XSHeadingStatusXrmHeading = 1,
+    XSHeadingStatusXrmDefaultAlignment = 7,
+    XSHeadingStatusXrmNone
+};
+
+typedef NS_ENUM(NSUInteger, XsensDotBleMessageId)
+{
+    XsensDotBleMessageRecording = 1,
+    XsensDotBleMessageSync
+};
+
+typedef NS_ENUM(NSUInteger, XsensDotBleMessageRecordingId)
+{
+    XSBleMessageRecordingEarseFlash = 0x30,
+    XSBleMessageRecordingEraseFlashDone,
+    XSBleMessageRecordingStoreFlashInfo,
+    XSBleMessageRecordingStoreFlashInfoDone,
+    XSBleMessageRecordingFlashFull,
+    XSBleMessageRecordingInvalidFlashFormat,
+    
+    XSBleMessageRecordingStartRecording = 0x40,
+    XSBleMessageRecordingStopRecording,
+    XSBleMessageRecordingGetRecordingTime,
+    XSBleMessageRecordingRecordingTime,
+    
+    XSBleMessageRecordingGetFlashInfo = 0x50,
+    XSBleMessageRecordingFlashInfo,
+    XSBleMessageRecordingFlashInfoDone,
+    
+    XSBleMessageRecordingGetExportFileInfo = 0x60,
+    XSBleMessageRecordingExportFileInfo,
+    XSBleMessageRecordingExportFileInfoDone,
+    XSBleMessageRecordingExportNoFile,
+    
+    XSBleMessageRecordingGetExportFileData = 0x70,
+    XSBleMessageRecordingExportFileData,
+    XSBleMessageRecordingExportFileDataDone,
+    XSBleMessageRecordingStopExportFileData
+};
+
+typedef NS_ENUM(NSUInteger, XsensDotBleMessageSyncId)
+{
+    XSBleMessageSyncStopSync = 0x50,
+    XSBleMessageSyncGetSyncStatus = 0x51
+};
+
+typedef NS_ENUM(NSUInteger, XSBleDeviceReportType)
+{
+    XSBleDeviceReportTypeSuccessful = 0,
+    XSBleDeviceReportTypePowerOff,
+    XSBleDeviceReportTypeDeviceBusy,
+    XSBleDeviceReportTypeIllegalCommand,
+    XSBleDeviceReportTypePowerSaving,
+    XSBleDeviceReportTypeButtonCallback,
+    XSBleDeviceFilterProfileTotalNumber,
+    XSBleDeviceFilterProfileProperty,
+};
+
 #pragma mark - Notification keywords
 /*
  Notification keywords.

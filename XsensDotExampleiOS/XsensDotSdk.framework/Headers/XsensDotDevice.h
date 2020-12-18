@@ -13,57 +13,10 @@
 #import "XsensDotStatisticsInfo.h"
 #import "XsensDotUpdatePacket.h"
 #import "XsensDotRecording.h"
+#import "XsensDotFilterProfile.h"
+#import "XsensDotDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-/*
- PayloadMode of Measurement
- */
-typedef NS_ENUM(NSInteger,XSBleDevicePayloadMode)
-{
-    XSBleDevicePayloadDefault = 0,
-    XSBleDevicePayloadInertialHighFidelityWithMag,
-    XSBleDevicePayloadExtendedQuaternion,
-    XSBleDevicePayloadCompleteQuaternion,
-    XSBleDevicePayloadOrientationEuler,
-    XSBleDevicePayloadOrientationQuaternion,
-    XSBleDevicePayloadFreeAcceleration,
-    XSBleDevicePayloadExtendedEuler, //new payload
-    XSBleDevicePayloadMFM = 15,
-    XSBleDevicePayloadCompleteEuler,
-    XSBleDevicePayloadHighFidelityNoMag,
-    XSBleDevicePayloadDeltaQuantitiesWithMag,
-    XSBleDevicePayloadDeltaQuantitiesNoMag,
-    XSBleDevicePayloadRateQuantitiesWithMag,
-    XSBleDevicePayloadRateQuantitiesNoMag,
-    XSBleDevicePayloadCustomMode1, //new payload
-    XSBleDevicePayloadCustomMode2, //new payload
-    XSBleDevicePayloadCustomMode3 //new payload
-};
-
-typedef NS_ENUM(NSUInteger, XSRecordingData)
-{
-    XSRecordingDataTimestamp = 0x00,
-    XSRecordingDataQuaternion,
-    XSRecordingDataIq,
-    XSRecordingDataIv, // 0x03
-    XSRecordingDataEulerAngles,
-    XSRecordingDataDq,
-    XSRecordingDataDv,
-    XSRecordingDataAcceleration,
-    XSRecordingDataAngularVelocity,
-    XSRecordingDataMagneticField,
-    XSRecordingDataStatus,//0x0a
-    XSRecordingDataClipCountAcc,
-    XSRecordingDataClipCountGyr,
-};
-
-typedef NS_ENUM(NSUInteger, XSHeadingStatus)
-{
-    XSHeadingStatusXrmHeading = 1,
-    XSHeadingStatusXrmDefaultAlignment = 7,
-    XSHeadingStatusXrmNone
-};
 
 @protocol CBPeripherialServiceExplorieDelegate <NSObject>
 - (void)peripheral:(CBPeripheral *)peripheral serviceExplorieComplete:(BOOL)flag;
@@ -75,7 +28,9 @@ typedef NS_ENUM(NSUInteger, XSHeadingStatus)
 @property (weak, nonatomic) id<CBPeripherialServiceExplorieDelegate> explorieDelegate;
 @property (strong, nonatomic, readonly) NSString *uuid;
 @property (strong, nonatomic, readonly) NSString *macAddress;
+/// The RSSI signal after XsensDotConnectionManager scan.
 @property (strong, nonatomic, nullable) NSNumber *RSSI;
+@property (copy, nonatomic) void (^onReadRSSIBlock)(NSNumber *RSSI);
 @property (strong, nonatomic, nullable) XsensDotBatteryInfo *battery;
 @property (strong, nonatomic) XsensDotFirmwareVersion *firmwareVersion;
 @property (assign, nonatomic) UInt64 serialNumber;
@@ -105,6 +60,12 @@ typedef NS_ENUM(NSUInteger, XSHeadingStatus)
 @property (strong, nonatomic) NSData *exportDataFormat;
 @property (assign, nonatomic) BOOL exportLogEnable;
 
+/// Output rate
+/// Should be 1Hz, 4Hz, 10Hz, 12Hz, 15Hz, 20Hz, 30Hz and 60Hz 120Hz(only for recording modes).
+@property (assign, nonatomic) int outputRate;
+/// Filter index
+@property (assign, nonatomic) int filterIndex;
+
 /*
     Before recording start when you give a time to check sensor storage status.
     Uint is minutes.
@@ -117,9 +78,12 @@ typedef NS_ENUM(NSUInteger, XSHeadingStatus)
 - (BOOL)isEqual:(XsensDotDevice *)object;
 - (CBPeripheralState)state;
 - (BOOL)stateIsConnected;
+- (BOOL)isInitialized;
+- (BOOL)isSynced;
 - (NSString *)peripheralName;
 - (NSString *)displayName;
 - (NSString *)displayAddress;
+- (NSArray <XsensDotFilterProfile *> *) filterProfilesList;
 
 @end
 
@@ -133,6 +97,19 @@ typedef NS_ENUM(NSUInteger, XSHeadingStatus)
 - (BOOL)statisticsFeatureEnable;
 - (void)setDidPowerOffBlock:(void(^ _Nullable)(void))block;
 
+
+/// Set the outputRate and filterIndex
+/// @param outputRate outputRate
+/// @param filterIndex filterIndex
+- (void)setOutputRate:(int)outputRate filterIndex:(int)filterIndex;
+
+
+/// Read the  device signal strength
+/// After read the RSSI the @propertity RSSI will be updated
+/// @param block Return block after read the RSSI
+- (void)readRSSI:(void (^_Nullable)(NSNumber *signal))block;
+
+
 /*
     MFM function
  */
@@ -140,6 +117,8 @@ typedef NS_ENUM(NSUInteger, XSHeadingStatus)
 // Stop MFM and return the mtb file path.
 - (NSString *)stopMfm;
 - (void)writeMfmResult:(NSData *)mfmData;
+- (void)setDidMFMProgress:(void (^_Nullable)(NSString *address, int progress))block;
+- (void)setDidMFMResult:(void (^_Nullable)(NSString *address, XSDotMFMResultTpye type))block;
 /*
   OTA function
  */
@@ -223,6 +202,11 @@ typedef NS_ENUM(NSUInteger, XSHeadingStatus)
     The recording export file data block, after call this method: startExportFileData this will be notify.
  */
 - (void)setDidParseExportFileDataBlock:(void (^ _Nullable)(XsensDotPlotData * _Nonnull plotData))block;
+
+/**
+  Button callback block
+ */
+- (void)setDidButtonCallbackBlock:(void (^ _Nullable)(int timestamp))block;
 
 @end
 

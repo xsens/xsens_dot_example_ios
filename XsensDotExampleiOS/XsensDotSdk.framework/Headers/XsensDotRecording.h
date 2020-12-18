@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, XSRecordingStatus)
     XSRecordingIsIdle = 0,
     XSRecordingIsRecording,
     XSRecordingIsRecordingStopped,
-    XSRecordingIsErasing,
+    XSRecordingIsErasing = 100,
     XSRecordingIsFlashInfo,
 };
 
@@ -34,6 +34,7 @@ typedef NS_ENUM(NSUInteger, XSFlashInfoStatus)
 
 @interface RecordingFile : NSObject
 
+/// The type is Byte
 @property (assign, nonatomic) NSUInteger fileSize;
 @property (assign, nonatomic) UInt32 timeStamap;
 

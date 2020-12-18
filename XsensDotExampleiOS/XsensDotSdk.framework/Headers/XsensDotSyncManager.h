@@ -23,10 +23,13 @@ typedef void(^XsensDotSyncResultBolck)(NSArray *syncResult);
 /// Add device to sync devices after startSync
 /// @param device XsensDotDevice
 /// @param status sync status 0x00 : success ,others are fail
-+ (void)addSyncDevice:(XsensDotDevice *)device status:(NSUInteger)status;
+/// @param sampleCounter For root node, the sampleCnt is 0, For scan node, the sampleCnt is 0 if failure reason is SynchorizationResult_Unstarted(0x9).
++ (void)addSyncDevice:(XsensDotDevice *)device status:(NSUInteger)status sampleCounter:(UInt32)sampleCounter;
 
 /// Check if sync started.
 + (BOOL)canSync;
+
++ (void)stopSync:(NSArray<XsensDotDevice *> *)devices;
 
 @end
 
