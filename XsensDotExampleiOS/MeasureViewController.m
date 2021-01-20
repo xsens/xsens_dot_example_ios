@@ -30,6 +30,8 @@
 @property (assign, nonatomic) BOOL logEnable;
 /// the result of synchronization
 @property (assign, nonatomic) BOOL syncResult;
+/// the sync flag(enable or disable sync)
+@property (assign, nonatomic) BOOL syncEnable;
 
 @end
 
@@ -71,6 +73,7 @@
 {
     _syncResult = YES;
     _logEnable = NO;
+    _syncEnable = NO;
 }
 
 - (void)navigationItemsSetup
@@ -127,6 +130,13 @@
     syncStatusLabel.font = [UIFont systemFontOfSize:14.f];
     syncStatusLabel.textColor = [UIColor grayColor];
     
+    UILabel *syncLabel = [[UILabel alloc]initWithFrame:CGRectMake(logLabel.left, logLabel.bottom + 10, 50, 20)];
+    syncLabel.text = @"Sync:";
+    
+    UISwitch *syncSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(syncLabel.right, logLabel.bottom + 10, 50, 30)];
+    syncSwitch.on = _syncEnable;
+    [syncSwitch addTarget:self action:@selector(handleSyncSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UILabel *logFilePathTitle = [[UILabel alloc]initWithFrame:CGRectMake(edge, syncStatusTitle.bottom + 10, 80, 20)];
     logFilePathTitle.text = @"File Path: ";
@@ -159,6 +169,8 @@
     [baseView addSubview:logSwitch];
     [baseView addSubview:syncStatusTitle];
     [baseView addSubview:syncStatusLabel];
+    [baseView addSubview:syncLabel];
+    [baseView addSubview:syncSwitch];
     [baseView addSubview:logFilePathTitle];
     [baseView addSubview:logFilePathLabel];
     [baseView addSubview:tableView];
@@ -252,6 +264,49 @@
     [XsensDotSyncManager startSync:self.measureDevices result:block];
 }
 
+/// Start heading reset or revert
+- (void)startHeading
+{
+    for (XsensDotDevice *device in self.measureDevices) {
+        if (device.isSupportHeadingReset)
+        {
+            device.headingResetResult = ^(int result) {
+                NSLog(@"Heading result %d", result);
+                result != 0? [self showHeadingSuccess] : [self showHeadingFail];
+            };
+            
+            if (device.headingStatus == XSHeadingStatusXrmHeading)
+            {
+                [device startHeadingRevert];
+            }
+            else if (device.headingStatus == XSHeadingStatusXrmDefaultAlignment ||
+                     device.headingStatus == XSHeadingStatusXrmNone){
+                [device startHeadingReset];
+            }
+        }
+    }
+}
+
+/// Show no sensor connected
+- (void)showHeadingSuccess
+{
+    MBProgressHUD *hud =  [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.offset = CGPointMake(0, 200);
+    hud.label.text = @"Heading success";
+    [hud hideAnimated:YES afterDelay:1.0f];
+}
+
+/// Show no sensor connected
+- (void)showHeadingFail
+{
+    MBProgressHUD *hud =  [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.offset = CGPointMake(0, 200);
+    hud.label.text = @"Heading fail";
+    [hud hideAnimated:YES afterDelay:1.0f];
+}
+
 
 #pragma mark - TouchEvent
 
@@ -264,7 +319,14 @@
     }
     else
     {
-        [self startSync];
+        if (self.syncEnable)
+        {
+            [self startSync];
+        }
+        else
+        {
+            [self startMeasure];
+        }
     }
 }
 
@@ -272,6 +334,12 @@
 - (void)handleLogSwitch:(UISwitch *)sender
 {
     self.logEnable = sender.on;
+}
+
+/// Handle sync switch button tapped
+- (void)handleSyncSwitch:(UISwitch *)sender
+{
+    self.syncEnable = sender.on;
 }
 
 

@@ -31,10 +31,21 @@ NS_ASSUME_NONNULL_BEGIN
 #endif
 
 
-
+/**
+ *  Enable XsensDotLog when you want to get debug information. Note that you need to disable it in released apps.
+ */
 @interface XsensDotLog : NSObject
 
+/**
+ *  @brief Set the log enable to open log in debug mode
+ *  @param enable The enable flag
+ */
 + (void)setLogEnable:(BOOL)enable;
+
+/**
+ *  @brief Get current sdk log  status
+ *  @return YES  the log is enable and NO the log is disable
+ */
 + (BOOL)isLogEnable;
 
 @end

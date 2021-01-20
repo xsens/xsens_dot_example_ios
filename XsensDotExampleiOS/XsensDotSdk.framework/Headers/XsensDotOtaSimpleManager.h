@@ -6,6 +6,8 @@
 //  Copyright © 2020 Xsens. All rights reserved.
 //
 
+
+
 #import <Foundation/Foundation.h>
 #import "XsensDotDevice.h"
 
@@ -16,12 +18,18 @@ typedef void(^XSDotOtaDeviceResonponseSuccessBlock)(NSString *address, BOOL hasN
 
 typedef void(^XSDotOtaDeviceResponseFailBlock)(NSError *error);
 
+/**
+ *  The Xsens DOT simple OTA manager ,and it can check firmware update.
+ */
 @interface XsensDotOtaSimpleManager : NSObject
 
+/**
+    @brief Returns the default singleton instance.
+*/
 @property (readonly, strong, class) XsensDotOtaSimpleManager *defaultManager;
 
 /**
-    Check firmware ota update
+    @brief Check firmware ota update
  
     @param device XsensDotDevice object
     @param successBlock Return block if check success

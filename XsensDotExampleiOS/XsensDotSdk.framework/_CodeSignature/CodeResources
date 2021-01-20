@@ -6,39 +6,35 @@
 	<dict>
 		<key>Headers/XsensDotBatteryInfo.h</key>
 		<data>
-		eVJKxcevytekEjPc1zjDNCwmDmM=
+		DmNW68omCTpjws+ClgTvkivuiM8=
 		</data>
 		<key>Headers/XsensDotConnectionManager.h</key>
 		<data>
-		nEarvB4TscrvV0tug/4Z+S3Vdr8=
+		MsbN8Lw2El1UxgzlywWYsNB7B5I=
 		</data>
 		<key>Headers/XsensDotDefine.h</key>
 		<data>
-		y/NLM0Kcyzh22bDRYJCV5c9na/8=
+		utGX2rEjWli72zGnsaNTnCTi4rg=
 		</data>
 		<key>Headers/XsensDotDevice.h</key>
 		<data>
-		y6pzy37g63GzNx27UbnVAN68+uY=
-		</data>
-		<key>Headers/XsensDotDeviceAssistor.h</key>
-		<data>
-		vv5a+DQu7cKXXMpF8MgyRcps8WA=
+		d58U8kvYuw6Mh1Mt6tfuGFJsWMA=
 		</data>
 		<key>Headers/XsensDotDevicePool.h</key>
 		<data>
-		xPVSJa7PEVSrCOQRpd+uGorrklM=
+		PhirMwGxikyeNFWsYPToEr3imAQ=
 		</data>
 		<key>Headers/XsensDotFilterProfile.h</key>
 		<data>
-		H8zCph1pxNWvFGBu/wncCyY0BrQ=
+		Aei8xU3/9JVWqkwZQZZt6uLnVtY=
 		</data>
 		<key>Headers/XsensDotFirmwareVersion.h</key>
 		<data>
-		huCx0AnFfpDtVx6vj1pIDGwMyNU=
+		df7EPU4QEde7lJMxcpICyD1j5fw=
 		</data>
 		<key>Headers/XsensDotLog.h</key>
 		<data>
-		RyRFaZC04XxS5Ak+cYqf9KTf81o=
+		67ChRikGtsI+2eLm+LVg38zh+W8=
 		</data>
 		<key>Headers/XsensDotMFMManager.h</key>
 		<data>
@@ -46,23 +42,23 @@
 		</data>
 		<key>Headers/XsensDotOtaSimpleManager.h</key>
 		<data>
-		mWzkJxpNDoClbmsjwNL6uql4yXU=
+		l7zlvAyMY83Evj1nEgfGmNMkXQo=
 		</data>
 		<key>Headers/XsensDotPlotData.h</key>
 		<data>
-		0VgSOmM6SZeQbH59LEiWNWrRkew=
+		8lJCH83lD7YEQiqFUJUs1VYNWw0=
 		</data>
 		<key>Headers/XsensDotReconnectManager.h</key>
 		<data>
-		ba8vJ43juNM7jydniOkH9K3StAk=
+		n+zpohQ+rAACVoAGTA87jOmo2YY=
 		</data>
 		<key>Headers/XsensDotRecording.h</key>
 		<data>
-		mTG5eB3BVLWw1lgVkkbTI4hJKVU=
+		twmqqSEINcYw41RiQONTyQBXekw=
 		</data>
 		<key>Headers/XsensDotSdk.h</key>
 		<data>
-		4v8eLMBf0ohf3V9zIc9O3SOe86k=
+		AFFLLdVoPOe+AGaXGqZpD668/Gc=
 		</data>
 		<key>Headers/XsensDotStatisticsInfo.h</key>
 		<data>
@@ -70,7 +66,7 @@
 		</data>
 		<key>Headers/XsensDotSyncManager.h</key>
 		<data>
-		ZHuF+772ti2SHdS/puWALNS9FqQ=
+		33CZ0XJmf9GOava0QLt2TE4Wut8=
 		</data>
 		<key>Headers/XsensDotUpdateManager.h</key>
 		<data>
@@ -82,11 +78,11 @@
 		</data>
 		<key>Headers/XsensDotUtils.h</key>
 		<data>
-		GI2IK4njBWaRzcm/93jV3butEdw=
+		TdEiJANtWY4omrk2PWEpsCOj1fU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		nARQapTRAyC3CWlfGiS+fEWINb4=
+		Ul7qtnyUFiIDARuuzoNdSpdX+ME=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -99,63 +95,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pZLb3iODZwL9uSe5FefDRXILRqe0x+hgBfsH4lcPnjk=
+			59/dyaFs8PyyaiMnW1HlD8j2fcyYIfxXMbhjEEYSstI=
 			</data>
 		</dict>
 		<key>Headers/XsensDotConnectionManager.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+5uY8aW4QKV6Dt7uiVF3scmW4to+TDf1bZafai0zfPo=
+			pPccQ0FIqApaMMbq10NGH3XnouDSKNgY4TRJeaZMYXQ=
 			</data>
 		</dict>
 		<key>Headers/XsensDotDefine.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			339xYUlttHzIL/xfHFy510v09BVys0tT3MIg889tVN4=
+			jMhsvlzD5/xD36tuH6cweaY9MZcY4lwQL5VxjS1x6tE=
 			</data>
 		</dict>
 		<key>Headers/XsensDotDevice.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Yq7MCYFi4AmXwnyPDtd+egAjSSXSFoDxtY/eT7worKc=
-			</data>
-		</dict>
-		<key>Headers/XsensDotDeviceAssistor.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			w5UXi7UfK35v4lAQZFDV802i6g6LMJz+vBC/TqXxs9o=
+			atDpItXDjIGvZoOIYx0ASvHsaaUX4Uv+JctrkjR+dto=
 			</data>
 		</dict>
 		<key>Headers/XsensDotDevicePool.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i5p7ex7IZYn9Ge12DOxvj9657rHm/nY2fESL98zM3g4=
+			k5ds+nZsXOrPG8BqM8prFbqWv97yq+VploQKBokmBD4=
 			</data>
 		</dict>
 		<key>Headers/XsensDotFilterProfile.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hQCcJxBEDh+0eS6BhoqtwIvhg1Y0hIBj4kx+RP+eBCY=
+			JwDuCM7d7iUCSvxc5z4pRFt5qGGOJ5Fjo55Q+piUpUk=
 			</data>
 		</dict>
 		<key>Headers/XsensDotFirmwareVersion.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			E3JnoZwtqXdGA5iNzSsbpb75xFvVw8bExPKQys9raoA=
+			E6ubfhhpUcdBBBu+X2CO6gISCgWU35IljCVrcqr/MUw=
 			</data>
 		</dict>
 		<key>Headers/XsensDotLog.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hGPNyqmcELRXv23uHKKPuZ+m9kJ1l9ep7KIseXrlYCo=
+			H9vGD5t10X23HRIrCKhEZiD33AjNP7vMDwemerzshfg=
 			</data>
 		</dict>
 		<key>Headers/XsensDotMFMManager.h</key>
@@ -169,35 +158,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EOCVPeEd0dgfja6r20YWpJGHHdZEPU9DeS55uOBV3p8=
+			A8UqWa3763Nsh1K7oexc2DwFRrm9/Ub6iETWZW9KNnQ=
 			</data>
 		</dict>
 		<key>Headers/XsensDotPlotData.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kuGUT5aJ8Kyh/jaOfmkqa0sEXONFIEt5WbdHGP5fmoM=
+			UdB59RvjNkeWjKUCtnlGO7u1YaMJ93Fp2wkucsumROE=
 			</data>
 		</dict>
 		<key>Headers/XsensDotReconnectManager.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rXrabW1gDNDqTHZ6yaoVwfEXbRFavXGDeQKNiw4J6ak=
+			yGQ8Hfp9z0u91hNyxUlLi4AXb84g4ULOR+LYPECyqGU=
 			</data>
 		</dict>
 		<key>Headers/XsensDotRecording.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0WrT0ABnlDswmm5S4mPu9ffP4KCCs2RhLoG/CwiazDg=
+			FPoVtSe8hoIFPSHCkJ06CJrFBozIq4RpsoVYuEX52ZI=
 			</data>
 		</dict>
 		<key>Headers/XsensDotSdk.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			umrPmQRVgqTZqJTqT7z0TEoG3QrHR/HEAcUUprj4584=
+			fo8gTHQJPett1D+TVSUhPrif9PyF1gVCZyKZITvOSoE=
 			</data>
 		</dict>
 		<key>Headers/XsensDotStatisticsInfo.h</key>
@@ -211,7 +200,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SwcH4v7sW/NrLuH3Z85/NHS1Dtjht2OJjIRT1gjWb5g=
+			IWQHAcoiqxNzq8pcmi7qJ+FGbuiFZqxbuiO7y8P3/ss=
 			</data>
 		</dict>
 		<key>Headers/XsensDotUpdateManager.h</key>
@@ -232,7 +221,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			NVzo0UuPVADDO5zH0iXXO7IKiCpzP9jfPUsggG1QSwo=
+			aFhCdUF445BHrn+LnU7q5zXO14fCiglkYlPtHl6ZSjQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

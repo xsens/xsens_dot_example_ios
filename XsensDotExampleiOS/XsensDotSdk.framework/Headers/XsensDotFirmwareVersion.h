@@ -14,6 +14,10 @@
 //  0xEEEEEEEE = Repository revision
 //
 
+/**
+ *  The Xsens DOT firmware information class.
+ */
+
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -22,23 +26,48 @@ extern const NSInteger BLEFirmwareVersionDataSize;
 
 @interface XsensDotFirmwareVersion : NSObject
 
+/// @brief Get the major version number
 - (NSUInteger)majorVersion;
+
+/// @brief Get the minor version number
 - (NSUInteger)minorVersion;
+
+/// @brief Get the reversion version number
 - (NSUInteger)reversionVersion;
+
+/// @brief Get the build year
 - (NSUInteger)buildYear;
+
+/// @brief Get the build month
 - (NSUInteger)buildMonth;
+
+/// @brief Get the build data
 - (NSUInteger)buildDate;
+
+/// @brief Get the build hour
 - (NSUInteger)buildHour;
+
+/// @brief Get the build minute
 - (NSUInteger)buildMinute;
+
+/// @brief Get the build second
 - (NSUInteger)buildSecond;
+
+/// @brief Get the soft device version
 - (NSUInteger)softDeviceVersion;
+
+/// @brief Get the build time
 - (NSString *)buildTime;
 
-
+/**
+ *  Constructor method
+ *  @param data The ble data
+ */
 + (instancetype)versionWithData:(NSData *)data;
 
-/*
-    Return the version string like: 1.3.0
+/**
+ *  @brief The firmware version description
+ *  @return The version string. For example: 1.6.0
  */
 - (NSString *)description;
 

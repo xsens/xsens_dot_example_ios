@@ -18,17 +18,12 @@ extern NSInteger const XSDotDevicePoolCapacityMax;
 extern float const XSDotDeviceConnectDuration;
 extern float const XSDotDeviceScanDuration;
 
-
-#pragma mark - XSDotManagerState
-
-/*
-Enum XSManagerState:
-Bluetooth state.
-
-Equivalent to CBManagerState, CBCentralManagerState and CBPeripheralManagerState.
-The purpose is to solve the compatibility problem of CBCentralManager.state type in different versions of iOS.
-*/
-
+/**
+ *  Bluetooth state of phone
+ *
+ *  Equivalent to CBManagerState, CBCentralManagerState and CBPeripheralManagerState.
+ *  The purpose is to solve the compatibility problem of CBCentralManager.state type in different versions of iOS.
+ */
 typedef NS_ENUM(NSInteger, XSDotManagerState)
 {
     XSDotManagerStateUnknown      = 0,//CBManagerStateUnknown
@@ -39,8 +34,9 @@ typedef NS_ENUM(NSInteger, XSDotManagerState)
     XSDotManagerStatePoweredOn,       //CBManagerStatePoweredOn
 };
 
-#pragma mark - XSDotDeviceCalibrationType
-
+/**
+ *  The sensor calibration type
+ */
 typedef NS_ENUM(NSInteger, XSDotDeviceCalibrationType)
 {
     XSDotDeviceCalibrationType1Step   = 1,
@@ -50,8 +46,9 @@ typedef NS_ENUM(NSInteger, XSDotDeviceCalibrationType)
     XSDotDeviceCalibrationTypeDefault = XSDotDeviceCalibrationType7Steps,
 };
 
-#pragma mark - XSDotDeviceMFMResultTpye
-
+/**
+ *  The MFM result type after done the mfm process.
+ */
 typedef NS_ENUM(NSUInteger, XSDotMFMResultTpye)
 {
     XSDotMFMResultFailed = 0,
@@ -60,8 +57,8 @@ typedef NS_ENUM(NSUInteger, XSDotMFMResultTpye)
     XSDotMFMResultGood,
 };
 
-/*
- PayloadMode of Measurement
+/**
+ *  Payload mode of Measurement
  */
 typedef NS_ENUM(NSInteger,XSBleDevicePayloadMode)
 {
@@ -85,6 +82,10 @@ typedef NS_ENUM(NSInteger,XSBleDevicePayloadMode)
     XSBleDevicePayloadCustomMode3 //new payload
 };
 
+/**
+ *  The data of exporting recording data from recording file
+ *  @see XsensDotDevice.exportDataFormat
+ */
 typedef NS_ENUM(NSUInteger, XSRecordingData)
 {
     XSRecordingDataTimestamp = 0x00,
@@ -102,6 +103,9 @@ typedef NS_ENUM(NSUInteger, XSRecordingData)
     XSRecordingDataClipCountGyr,
 };
 
+/**
+ *  Sensor heading reset status
+ */
 typedef NS_ENUM(NSUInteger, XSHeadingStatus)
 {
     XSHeadingStatusXrmHeading = 1,
@@ -109,12 +113,18 @@ typedef NS_ENUM(NSUInteger, XSHeadingStatus)
     XSHeadingStatusXrmNone
 };
 
+/**
+ *  The BLE message ID
+ */
 typedef NS_ENUM(NSUInteger, XsensDotBleMessageId)
 {
     XsensDotBleMessageRecording = 1,
     XsensDotBleMessageSync
 };
 
+/**
+ *  The BLE recording message ID
+ */
 typedef NS_ENUM(NSUInteger, XsensDotBleMessageRecordingId)
 {
     XSBleMessageRecordingEarseFlash = 0x30,
@@ -144,12 +154,18 @@ typedef NS_ENUM(NSUInteger, XsensDotBleMessageRecordingId)
     XSBleMessageRecordingStopExportFileData
 };
 
+/**
+ *  The BLE sync message ID
+ */
 typedef NS_ENUM(NSUInteger, XsensDotBleMessageSyncId)
 {
     XSBleMessageSyncStopSync = 0x50,
     XSBleMessageSyncGetSyncStatus = 0x51
 };
 
+/**
+ *  The sensor report type
+ */
 typedef NS_ENUM(NSUInteger, XSBleDeviceReportType)
 {
     XSBleDeviceReportTypeSuccessful = 0,
@@ -168,37 +184,37 @@ typedef NS_ENUM(NSUInteger, XSBleDeviceReportType)
  If there is return data, use NSNotification.object to return.
  */
 
-//Bluetooth state update
+/// Notification of Bluetooth state update
 extern NSString * const kXsensDotNotificationManagerStateDidUpdate;
 
-//Connect succeeded, return XsensDotDevice *.
+/// Notification of Connect succeeded, return XsensDotDevice *.
 extern NSString * const kXsensDotNotificationDeviceConnectSucceeded;
 
-//Connect failed, return XsensDotDevice *.
+/// Notification of Connect failed, return XsensDotDevice *.
 extern NSString * const kXsensDotNotificationDeviceConnectFailed;
 
-//Connection break, return XsensDotDevice *.
+/// Notification of Connection break, return XsensDotDevice *.
 extern NSString * const kXsensDotNotificationDeviceDidDisconnect;
 
-//Battery information update, return XsensDotDevice *.
+/// Notification of Battery information update, return XsensDotDevice *.
 extern NSString * const kXsensDotNotificationDeviceBatteryDidUpdate;
 
-//Firmware version read, return XsensDotDevice *.
+/// Notification of Firmware version read, return XsensDotDevice *.
 extern NSString * const kXsensDotNotificationDeviceFirmwareVersionDidRead;
 
-//Device name read, return XsensDotDevice *.
+/// Notification of  Sensor name read, return XsensDotDevice *.
 extern NSString * const kXsensDotNotificationDeviceNameDidRead;
 
-//Device Mac address read, return XsensDotDevice *.
+/// Notification of  Sensor Mac address read, return XsensDotDevice *.
 extern NSString * const kXsensDotNotificationDeviceMacAddressDidRead;
 
-//Start to connect device, return nil.
+/// Notification of Start to connect sensor, return nil.
 extern NSString * const kXsensDotNotificationDeviceConnectionDidStart;
 
-//Logger path , when start logging return NSString *.
+/// Notification of  Logger path , when start logging return NSString *.
 extern NSString * const kXsensDotNotificationDeviceLoggingPath;
 
-//Recording state changed , when connect device this will be notify.
+/// Notification of Recording state changed , when connect sensor this will be notify.
 extern NSString * const kXsensDotNotificationDeviceRecordingStateUpdate;
 
 //@"Xsens DOT"

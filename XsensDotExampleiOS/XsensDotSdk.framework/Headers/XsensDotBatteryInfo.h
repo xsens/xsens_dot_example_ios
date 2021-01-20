@@ -6,18 +6,37 @@
 //  Copyright © 2019 Xsens. All rights reserved.
 //
 
+/**
+ *  This class has battery information of sensor. Get current battery value and charging state.
+ */
+
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XsensDotBatteryInfo : NSObject
 
-/*
-    Return the current charging state
+/**
+ *  @brief Charging status property of the sensor, YES is charging, No is not charging
  */
-@property (assign, nonatomic) BOOL chargeState;
-@property (assign, nonatomic) NSInteger value;
+@property (assign, nonatomic, readonly) BOOL chargeState;
+
+/**
+ *  @brief Battery value property of the sensor
+ */
+@property (assign, nonatomic, readonly) NSInteger value;
+
+/**
+    @brief Constructor method
+    @param chargeState Charging state
+    @param value Battery value
+ */
 + (instancetype)infoWithChargeState:(BOOL)chargeState value:(NSInteger)value;
+
+/**
+    @brief The Battery description
+    @return Battery description string, the  format is : @"Battery:(Charging, 45%") or @"Battery:(Uncharged, 45%)"
+ */
 - (NSString *)description;
 
 @end
