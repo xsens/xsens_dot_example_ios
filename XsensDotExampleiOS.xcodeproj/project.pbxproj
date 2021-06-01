@@ -433,7 +433,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsens.XsensDotExampleiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -457,7 +457,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsens.XsensDotExampleiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
