@@ -56,12 +56,12 @@ typedef NS_ENUM(NSUInteger, XSFlashInfoStatus)
 @interface XsensDotRecordingFile : NSObject
 
 /**
- *  @brief The file size unit is Byte
+ *  The file size unit is Byte
  */
 @property (assign, nonatomic) NSUInteger fileSize;
 
 /**
- *  @brief The file timeStamap (create time)
+ *  The file timeStamap (create time)
  */
 @property (assign, nonatomic) UInt32 timeStamap;
 
@@ -73,57 +73,57 @@ typedef NS_ENUM(NSUInteger, XSFlashInfoStatus)
 @interface XsensDotRecording : NSObject
 
 /**
- *  @brief The sensor flash info status
+ *  The sensor flash info status
  */
 @property (assign, nonatomic) XSFlashInfoStatus flashInfoStatus;
 
 /**
- *  @brief The current recording status in recording mode
+ *  The current recording status in recording mode
  */
 @property (assign, nonatomic) XSRecordingStatus recordingStatus;
 
 /**
- *  @brief The recording status changed block
+ *  The recording status changed block
  */
 @property (copy, nonatomic) void (^updateRecordingStatus)(XSRecordingStatus status);
 
 /**
- *  @brief The exporting recording file data changed block
+ *  The exporting recording file data changed block
  */
 @property (copy, nonatomic) void (^updateExportingStatus)(XSExportStatus status);
 
 /**
- *  @brief The start recording date: 4 bytes unit is seconds
+ *  The start recording date: 4 bytes unit is seconds
  */
 @property (assign, nonatomic) UInt32 recordingDate;
 
 /**
- *   @brief The recording time that you set from : - (void)startRecording:(UInt16)recordingTime, unit is seconds
+ *  The recording time that you set from : - (void)startRecording:(UInt16)recordingTime, unit is seconds
  */
 @property (assign, nonatomic) UInt16 recordingTime;
 
 /**
- *  @brief The remaining time of recording, If the sensor is in XSRecordingIsRecording this will be useful
+ *  The remaining time of recording, If the sensor is in XSRecordingIsRecording this will be useful
  */
 @property (assign, nonatomic) UInt32 remainingTime;
 
 /**
- *  @brief The current exporting file index
+ *  The current exporting file index
  */
 @property (assign, nonatomic) NSUInteger fileIndex;
 
 /**
- *  @brief The recording file list.
+ *  The recording file list.
  */
 @property (strong, nonatomic) NSMutableArray <XsensDotRecordingFile *> *files;
 
 /**
- *  @brief The exporting file index array , list like [0,1,4] , max is files.count.
+ *  The exporting file index array , list like [0,1,4] , max is files.count.
  */
 @property (strong, nonatomic) NSArray *exportFileList;
 
 /**
- *  @brief The exporting file done block, index is from exportFileList , if result is YES means all files done and NO means finish one of them.
+ *  The exporting file done block, index is from exportFileList , if result is YES means all files done and NO means finish one of them.
  */
 @property (copy, nonatomic) void (^exportFileDone)(NSUInteger index, BOOL result);
 

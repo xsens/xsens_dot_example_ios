@@ -37,13 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XsensDotLog : NSObject
 
 /**
- *  @brief Set the log enable to open log in debug mode
+ *  Set the log enable to open log in debug mode
  *  @param enable The enable flag
  */
 + (void)setLogEnable:(BOOL)enable;
 
 /**
- *  @brief Get current sdk log  status
+ *  Get current sdk log  status
  *  @return YES  the log is enable and NO the log is disable
  */
 + (BOOL)isLogEnable;

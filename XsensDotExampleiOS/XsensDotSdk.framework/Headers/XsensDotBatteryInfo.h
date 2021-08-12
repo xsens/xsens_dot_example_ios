@@ -17,25 +17,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XsensDotBatteryInfo : NSObject
 
 /**
- *  @brief Charging status property of the sensor, YES is charging, No is not charging
+ *  Charging status property of the sensor, YES is charging, No is not charging
  */
 @property (assign, nonatomic, readonly) BOOL chargeState;
 
 /**
- *  @brief Battery value property of the sensor
+ *  Battery value property of the sensor
  */
 @property (assign, nonatomic, readonly) NSInteger value;
 
 /**
-    @brief Constructor method
-    @param chargeState Charging state
-    @param value Battery value
+ * Constructor method
+ * @param chargeState Charging state
+ * @param value Battery value
  */
 + (instancetype)infoWithChargeState:(BOOL)chargeState value:(NSInteger)value;
 
 /**
-    @brief The Battery description
-    @return Battery description string, the  format is : @"Battery:(Charging, 45%") or @"Battery:(Uncharged, 45%)"
+ * The Battery description
+ * @return Battery description string, the  format is : @"Battery:(Charging, 45%") or @"Battery:(Uncharged, 45%)"
  */
 - (NSString *)description;
 

@@ -17,23 +17,23 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XsensDotReconnectManager : NSObject
 
 /**
-    Set reconnection enable
-    @param enable Enable/Disable reconnection
+ * Set reconnection enable
+ * @param enable Enable/Disable reconnection
  */
 + (void)setEnable:(BOOL)enable;
 /**
-    Get current reconnection state
-    @return The enable state
+ * Get current reconnection state
+ * @return The enable state
  */
 + (BOOL)enable;
 
 /**
-    Bluetooth state of phone has changed
+ * Bluetooth state of phone has changed
  */
 + (void)onManagerStateUpdated;
 
 /**
-    The Bounded sensors count has changed 
+ * The Bounded sensors count has changed
  */
 + (void)onBoundDeviceCapacityModified;
 

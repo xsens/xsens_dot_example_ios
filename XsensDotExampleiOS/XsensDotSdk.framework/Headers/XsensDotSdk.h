@@ -23,10 +23,9 @@ FOUNDATION_EXPORT const unsigned char XsensDotSdkVersionString[];
 #import <XsensDotSdk/XsensDotConnectionManager.h>
 #import <XsensDotSdk/XsensDotReconnectManager.h>
 #import <XsensDotSdk/XsensDotPlotData.h>
-#import <XsensDotSdk/XsensDotUpdatePacket.h>
 #import <XsensDotSdk/XsensDotLog.h>
 #import <XsensDotSdk/XsensDotSyncManager.h>
-#import <XsensDotSdk/XsensDotOtaSimpleManager.h>
 #import <XsensDotSdk/XsensDotFilterProfile.h>
+#import <XsensDotSdk/XsensDotOtaManager.h>
 
 

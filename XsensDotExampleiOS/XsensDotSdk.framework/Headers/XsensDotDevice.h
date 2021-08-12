@@ -10,8 +10,6 @@
 #import "XsensDotBatteryInfo.h"
 #import "XsensDotFirmwareVersion.h"
 #import "XsensDotPlotData.h"
-#import "XsensDotStatisticsInfo.h"
-#import "XsensDotUpdatePacket.h"
 #import "XsensDotRecording.h"
 #import "XsensDotFilterProfile.h"
 #import "XsensDotDefine.h"
@@ -32,210 +30,201 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XsensDotDevice : NSObject
 
 /**
- *  @brief The CBPeripheral object
+ *  The CBPeripheral object
  */
 @property (strong, nonatomic, readonly) CBPeripheral *peripheral;
 
 /**
- *  @brief The delegate object that will expore services
+ *  The delegate object that will expore services
  */
 @property (weak, nonatomic) id<XsensDotCBPeripherialServiceExploreDelegate> explorieDelegate;
 
 /**
- *  @brief uuid
+ *  uuid
  */
 @property (strong, nonatomic, readonly) NSString *uuid;
 
 /**
- *  @brief Mac address
+ *  Mac address
  */
 @property (strong, nonatomic, readonly) NSString *macAddress;
 
 /**
- *  @brief The RSSI signal after XsensDotConnectionManager scan
+ *  The RSSI signal after XsensDotConnectionManager scan
  */
 @property (strong, nonatomic, nullable) NSNumber *RSSI;
 
 /**
- *  @brief The XsensDotBatteryInfo object
+ *  The XsensDotBatteryInfo object
  */
 @property (strong, nonatomic, nullable) XsensDotBatteryInfo *battery;
 
 /**
- *  @brief The XsensDotFirmwareVersion object
+ *  The XsensDotFirmwareVersion object
  */
 @property (strong, nonatomic) XsensDotFirmwareVersion *firmwareVersion;
 
 /**
- *  @brief The Serial number
+ *  The Serial number
  */
 @property (assign, nonatomic) UInt64 serialNumber;
 
 /**
- *  @brief The plotting(real- time streaming) enable flag
+ *  The plotting(real- time streaming) enable flag
  */
 @property (assign, nonatomic) BOOL plotMeasureEnable;
 
 /**
- *  @brief The current payload mode
+ *  The current payload mode
  */
 @property (assign, nonatomic) XSBleDevicePayloadMode plotMeasureMode;
 
 /**
- *  @brief The plotting(real- time streaming) log enable flag
+ *  The plotting(real- time streaming) log enable flag
  */
 @property (assign, nonatomic) BOOL plotLogEnable;
 
 /**
- *  @brief OTA progress block when start ota
- */
-@property (copy, nonatomic) void (^updateProgress)(float progress);
-
-/**
- *  @brief OTA result block
- */
-@property (copy, nonatomic) void (^updateResult)(XsensDotUpdatePacket *updatePacket);
-
-/**
- *  @brief The flag of  support heading reset feature
+ *  The flag of  support heading reset feature
  */
 @property (assign, nonatomic) BOOL isSupportHeadingReset;
 
 /**
- *  @brief The current heading status
+ *  The current heading status
  */
 @property (assign, nonatomic) XSHeadingStatus headingStatus;
 
 /**
- *  @brief The heading  result block after do heading reset or revert
+ *  The heading  result block after do heading reset or revert
+ *  @discussion The result != 0 means heading reset success otherwise heading reset fail.
  */
 @property (copy, nonatomic) void (^headingResetResult)(int result);
 
 /**
- *  @brief The Advertisement timeout minutes
+ *  The Advertisement timeout minutes
  */
 @property (assign, nonatomic) UInt8 timeoutXMinutes;
 
 /**
- *  @brief The Advertisement timeout seconds
+ *  The Advertisement timeout seconds
  */
 @property (assign, nonatomic) UInt8 timeoutXSeconds;
 
 /**
- *  @brief The Connection timeout minutes
+ *  The Connection timeout minutes
  */
 @property (assign, nonatomic) UInt8 timeoutYMinutes;
 
 /**
- *  @brief The Connection timeout seconds
+ *  The Connection timeout seconds
  */
 @property (assign, nonatomic) UInt8 timeoutYSeconds;
 
 /**
- *  @brief The Sensor total storage space
+ *  The Sensor total storage space
  */
 @property (assign, nonatomic) NSUInteger totalSpace;
 
 /**
- *  @brief The Sensor used storage space in recording mode.
+ *  The Sensor used storage space in recording mode.
  */
 @property (assign, nonatomic) NSUInteger usedSpace;
 
 /**
- *  @brief The XsensDotRecording object
+ *  The XsensDotRecording object
  */
 @property (strong, nonatomic) XsensDotRecording *recording;
 
 /**
- *  @brief The recording export data format
+ *  The recording export data format
  *  @discussion Examples :UInt8 bytes[4]    = { XSRecordingDataTimestamp, XSRecordingDataEulerAngles, XSRecordingDataAcceleration, XSRecordingDataAngularVelocity };
  *             NSData *exportData   = [NSData dataWithBytes:bytes length:sizeof(bytes)];
  */
 @property (strong, nonatomic) NSData *exportDataFormat;
 
 /**
- *  @brief The log enable flag when start export recording data, if YES this will save log file to app's folder.
+ *  The log enable flag when start export recording data, if YES this will save log file to app's folder.
  */
 @property (assign, nonatomic) BOOL exportLogEnable;
 
 /**
- *  @brief The property of outoutRate
+ *  The property of outoutRate
  *  @discussion Should be 1Hz, 4Hz, 10Hz, 12Hz, 15Hz, 20Hz, 30Hz and 60Hz 120Hz(only for recording modes).
  */
 @property (assign, nonatomic) int outputRate;
 
 /**
- *  @brief The property of outoutRate
+ *  The property of outoutRate
  *  @discussion Currently only support 0 and 1
  */
 @property (assign, nonatomic) int filterIndex;
 
 /**
- *  @brief Before recording start when you give a time to check sensor storage status. Unit is minute.
+ *  Before recording start when you give a time to check sensor storage status. Unit is minute.
  */
 @property (copy, nonatomic) void (^getStorageStatusWithTime)(NSUInteger time);
 
 /**
- *  @brief Constructor with a peripheral
+ *  Constructor with a peripheral
  *  @param peripheral CBPeripheral object
  */
 + (instancetype)deviceWithPeripheral:(CBPeripheral *)peripheral;
 
 /**
- *  @brief Parse BLE advertisement data
+ *  Parse BLE advertisement data
  *  @param advertisementData Advertisement data
  */
 - (void)parseAdvertisementData:(NSDictionary *)advertisementData;
 
 /**
- *  @brief Parse mac address
+ *  Parse mac address
  *  @param macAddressData Mac address data
  */
 - (void)parseMacAddress:(NSData *)macAddressData;
 
 /**
- *  @brief Judge the XsensDotDevice object if it's equal
+ *  Judge the XsensDotDevice object if it's equal
  *  @param object The XsensDotDevice object
  */
 - (BOOL)isEqual:(XsensDotDevice *)object;
 
 /**
- *  @brief The current bluetooth state
+ *  The current bluetooth state
  */
 - (CBPeripheralState)state;
 
 /**
- *  @brief The flag that BLE is connected
+ *  The flag that BLE is connected
  */
 - (BOOL)stateIsConnected;
 
 /**
- *  @brief The flag that the connection is initialized
+ *  The flag that the connection is initialized
  */
 - (BOOL)isInitialized;
 
 /**
- *  @brief The flag that the sensor is synced
+ *  The flag that the sensor is synced
  */
 - (BOOL)isSynced;
 
 /**
- *  @brief The peripheral name
+ *  The peripheral name
  */
 - (NSString *)peripheralName;
 
 /**
- *  @brief The tag name
+ *  The tag name
  */
 - (NSString *)displayName;
 
 /**
- *  @brief The mac address
+ *  The mac address
  */
 - (NSString *)displayAddress;
 
 /**
- *  @brief The support filter profile list
+ *  The support filter profile list
  */
 - (NSArray <XsensDotFilterProfile *> *) filterProfilesList;
 
@@ -247,99 +236,94 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface XsensDotDevice (Instruction)
 /**
- *  @brief The plotting(real-time streaming) data block, after set plotMeasureEnable = YES, this will outout plotData
+ *  The plotting(real-time streaming) data block, after set plotMeasureEnable = YES, this will outout plotData
  *  @param block Return the XsensDotPlotData data
  */
 - (void)setDidParsePlotDataBlock:(void (^ _Nullable)(XsensDotPlotData * _Nonnull plotData))block;
 
 /**
- *  @brief The statistics info block.
- *  @param block Return the XsensDotStatisticsInfo object
- */
-- (void)setDidParseStatisticsInfoBlock:(void(^ _Nullable)(XsensDotStatisticsInfo * _Nonnull statisticsInfo))block;
-/**
- *  @brief Set the sensor tag name
+ *  Set the sensor tag name
  *  @param name The tag name
  */
 - (void)setDeviceName:(NSString *)name;
 
 /**
- *  @brief Start identifying
+ *  Start identifying
  */
 - (void)startIdentifying;
 
 /**
- *  @brief Power off the sensor
+ *  Power off the sensor
  */
 - (void)powerOff;
 
 /**
- *  @brief Read statistics info
+ *  Read statistics info
  */
 - (void)readStatisticsInfo;
 
 /**
- *  @brief The flat of support statistics feature
+ *  The flat of support statistics feature
  */
 - (BOOL)statisticsFeatureEnable;
 
 /**
- *  @brief The block when sensor did power off
+ *  The block when sensor did power off
  *  @param block The return block
  */
 - (void)setDidPowerOffBlock:(void(^ _Nullable)(void))block;
 
 /**
- *  @brief Set the outputRate and filterIndex
+ *  Set the outputRate and filterIndex
  *  @param outputRate outputRate
  *  @param filterIndex filterIndex
  */
 - (void)setOutputRate:(int)outputRate filterIndex:(int)filterIndex;
 
 /**
- *  @brief Read the  sensor signal strength
+ *  Read the  sensor signal strength
  *  @param block Return block after read the RSSI
  *  @discussion After read the RSSI the @propertity RSSI will also be updated
  */
 - (void)readRSSI:(void (^_Nullable)(NSNumber *signal))block;
 
 /**
- *  @brief Start MFM
+ *  Start MFM
  */
 - (void)startMfm;
 
 /**
- *  @brief Stop MFM
+ *  Stop MFM
  *  @return The mtb file path
  */
 - (NSString *)stopMfm;
 
 /**
- *  @brief Write mtb data to firmware
+ *  Write mtb data to firmware
  *  @param mfmData The mtb data
  */
 - (void)writeMfmResult:(NSData *)mfmData;
 
 /**
- *  @brief Set the progress block when start mfm
+ *  Set the progress block when start mfm
  *  @param block The block from mfm data parse
  */
 - (void)setDidMFMProgress:(void (^_Nullable)(NSString *address, int progress))block;
 
 /**
- *  @brief Set the result block when  mfm has been done
+ *  Set the result block when  mfm has been done
  *  @param block The block from mfm process done
  */
 - (void)setDidMFMResult:(void (^_Nullable)(NSString *address, XSDotMFMResultTpye type))block;
 
 /**
- *  @brief  Start firmeare update
+ *  Start firmeare update
  *  @param file The firmeware file
  */
 - (void)setFirmwareUpdate:(NSString *)file;
 
 /**
- *  @brief Set power saving time
+ *  Set power saving time
  *  @param xMinutes The advertisement minutes
  *  @param xSeconds The advertisement seconds
  *  @param yMinutes The connection minutes
@@ -348,125 +332,162 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setPowerSavingTimeout:(UInt8) xMinutes xSecond:(UInt8)xSeconds yMinutes:(UInt8)yMinutes ySeconds:(UInt8)ySeconds;
 
 /**
- *  @brief Start heading reset
+ *  Start heading reset
+ *  @return If firmware support heading reset feature this will be YES, otherwise it's NO
  */
-- (void)startHeadingReset;
+- (BOOL)startHeadingReset;
 
 /**
- *  @brief Start heading revert
+ *  Start heading revert
+ *  @return If firmware support heading reset feature this will be YES, otherwise it's NO
  */
-- (void)startHeadingRevert;
+- (BOOL)startHeadingRevert;
 
 /**
- *  @brief Read Rot local block
+ *  Read Rot local block
  *  @param block Return block
  */
 - (void)setDidreadRotLocal:(void (^_Nullable)(float * _Nonnull rotLocal))block;
 
 /**
- *  @brief Dump crash data
+ *  Dump crash data
  */
 - (void)dumpCrashInfoData;
 
 /**
- *  @brief Clear crash data
+ *  Clear crash data
  *  @discussion clearCrashInfoData is 150ms later then dumpCrashInfoData  .
  */
 - (void)clearCrashInfoData;
 
 /**
- *  @brief Start synchronization
+ *  Start synchronization
  *  @param address The sensor macAddress
  *  @param type The sync type
  */
 - (void)startSync:(NSString *)address type:(UInt8)type;
 
 /**
- *  @brief Stop Synchronization
+ *  Stop Synchronization
  */
 - (void)stopSync;
 
 /**
- *  @brief Get Recording Status, after call this method the recording.recordingStatus will be update
+ *  Get Recording Status, after call this method the recording.recordingStatus will be update
  */
 - (void)getRecordingStatus;
 
 /**
- *  @brief Start recording
+ *  Start recording
  *  @param recordingTime The recording time that you want
  *  @discussion If no clear time, please set it to 0xFFFF, the recording will always do until storage is full
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)startRecording:(UInt16)recordingTime;
+- (BOOL)startRecording:(UInt16)recordingTime;
 
 /**
- *  @brief Stop recording
+ *  Stop recording
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)stopRecording;
+- (BOOL)stopRecording;
 
 /**
- *  @brief Get sensor flash information, after called it will be initializing totalSpace and usedSpace
+ *  Get sensor flash information, after called it will be initializing totalSpace and usedSpace
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)getFlashInfo;
+- (BOOL)getFlashInfo;
 
 /**
- *  @brief The  getFlashInfo done block
+ *  The  getFlashInfo done block
  *  @param block The XSFlashInfoStatus object
  */
 - (void)setFlashInfoDoneBlock:(void (^_Nullable)(XSFlashInfoStatus status))block;
 
 /**
- *  @brief If recording.recordingStatus == XSRecordingIsRecording ,and  will be get the
+ *  If recording.recordingStatus == XSRecordingIsRecording ,and  will be get the
  *          recording.recordingDate, recording.recordingTime ,recording.remainingTime
+ *
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)getRecordingTime;
+- (BOOL)getRecordingTime;
 
 /**
- *  @brief Earse recording Data
+ *  Earse recording Data
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)eraseData;
+- (BOOL)eraseData;
 
 /**
- *  @brief The eraseData done block
+ *  The eraseData done block
  *  @param block Return the success result
  */
 - (void)setEraseDataDoneBlock:(void (^_Nullable)(int success))block;
 
 /**
- *  @brief Get the export file information , this will be initialize RecordingFile.timeStamap
+ *  Get the export file information , this will be initialize RecordingFile.timeStamap
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)getExportFileInfo;
+- (BOOL)getExportFileInfo;
 
 /**
- *  @brief The getExportFileInfo done block
+ *  The getExportFileInfo done block
  *  @param block Return the success result
  */
 - (void)setExportFileInfoDone:(void (^_Nullable)(BOOL success))block;
 
 /**
- *  @brief Start export recording file data, when call this method, Please ensure two prerequisites
+ *  Start export recording file data, when call this method, Please ensure two prerequisites
  *          1. set device.exportDataFormat
  *          2. set recording.exportFileList
  *          recording export status in this block:
  *          recording.updateExportingStatus
+ *
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)startExportFileData;
+- (BOOL)startExportFileData;
 
 /**
- *  @brief Stop export recording file data, Recording export status in this block: recording.updateExportingStatus
+ *  Stop export recording file data, Recording export status in this block: recording.updateExportingStatus
+ *  @return If firmware support recording feature this will be YES, otherwise it's NO
  */
-- (void)stopExportFileData;
+- (BOOL)stopExportFileData;
 
 /**
- *  @brief The block of startExportFileData
+ *  The block of startExportFileData
  *  @param block Return the XsensDotPlotData object
  */
 - (void)setDidParseExportFileDataBlock:(void (^ _Nullable)(XsensDotPlotData * _Nonnull plotData))block;
 
 /**
- *  @brief Button callback block
+ *  Button callback block
  *  @param block The timestamp block
  */
 - (void)setDidButtonCallbackBlock:(void (^ _Nullable)(int timestamp))block;
+
+#pragma mark - v2
+
+/**
+ * The sensor's hardware is V2
+ */
+- (BOOL)isProductV2;
+
+/**
+ * The sensor's hardware is V1
+ */
+- (BOOL)isProductV1;
+
+#pragma mark - Power On Settings
+
+/**
+ *  Enable the DOT sensor to power on by USB plugin aditionally.
+ *  @param isEnable The BOOL value
+ */
+- (BOOL)enableUsbPowerOn:(BOOL) isEnable;
+
+/**
+ *  check if the USB plugin power on is enabled or not.
+ */
+- (BOOL)isUsbPowerOnEnabled;
 
 @end
 

@@ -11,6 +11,7 @@
 #import "UIDeviceCategory.h"
 #import "UIViewCategory.h"
 #import "MeasureViewController.h"
+#import "OtaViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import <XsensDotSdk/XsensDotDevice.h>
 #import <XsensDotSdk/XsensDotLog.h>
@@ -71,10 +72,28 @@
 - (void)navigationItemsSetup
 {
     self.title = @"XsensDOT Example";
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"Menu" menu:[self createMenu]];
+    [item setTintColor:UIColor.whiteColor];
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     navigationBar.barTintColor = [UIColor orangeColor];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.measureButton];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (UIMenu *)createMenu{
+    UIAction *measure = [UIAction actionWithTitle:@"Measure" image:nil identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
+        [self handleMeasure:nil];
+    }];
+    
+    UIAction *ota = [UIAction actionWithTitle:@"OTA" image:nil identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
+        [self handleOta];
+    }];
+    
+    NSArray *menus = [[NSArray alloc]initWithObjects:measure, ota, nil];
+    
+    UIMenu *menu = [UIMenu menuWithTitle:@"" children:menus];
+    
+    return menu;
 }
 
 
@@ -165,6 +184,17 @@
     [hud hideAnimated:YES afterDelay:1.0f];
 }
 
+/// Show sensor not initialized
+- (void)showNotInitialized
+{
+    MBProgressHUD *hud =  [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.offset = CGPointMake(0, 200);
+    hud.label.text = @"Please wait for sensor initialization";
+    [hud hideAnimated:YES afterDelay:1.0f];
+}
+
+
 #pragma mark -- TouchEvent
 
 /// Handle the switch button of UITableViewCell tapped
@@ -206,6 +236,33 @@
         MeasureViewController *measureViewController = [MeasureViewController new];
         measureViewController.measureDevices = self.connectList;
         [self.navigationController pushViewController:measureViewController animated:YES];
+    }
+}
+
+/**
+ * This is the demo for one sensor to do the OTA function
+ * If you want to do OTA for multiple sensors,
+ * please make sure to upgrade in sequence, when the first upgrade succeeds, upgrade the next one, and so on.
+ */
+- (void)handleOta
+{
+    if (self.connectList.count == 0)
+    {
+        [self showUnconnectHud];
+    }
+    else
+    {
+        if ([self.connectList.firstObject isInitialized])
+        {
+            OtaViewController *otaViewController = [OtaViewController new];
+            otaViewController.device = self.connectList.firstObject;
+            [self.navigationController pushViewController:otaViewController animated:YES];
+        }
+        else
+        {
+            [self showNotInitialized];
+        }
+        
     }
 }
 

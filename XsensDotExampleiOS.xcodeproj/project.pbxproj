@@ -19,6 +19,7 @@
 		846442CF24EB7D77006297A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846442CE24EB7D77006297A8 /* Assets.xcassets */; };
 		846442D224EB7D77006297A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846442D024EB7D77006297A8 /* LaunchScreen.storyboard */; };
 		846442D524EB7D77006297A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 846442D424EB7D77006297A8 /* main.m */; };
+		848D54DE2695A9C4002476E5 /* OtaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D54DD2695A9C4002476E5 /* OtaViewController.m */; };
 		849A22CC24F5FFB30091235F /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A22CB24F5FFB30091235F /* MeasureViewController.m */; };
 		849A22D324F6619D0091235F /* DeviceMeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A22D224F6619D0091235F /* DeviceMeasureCell.m */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,8 @@
 		846442D124EB7D77006297A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846442D324EB7D77006297A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		846442D424EB7D77006297A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		848D54DC2695A9C4002476E5 /* OtaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtaViewController.h; sourceTree = "<group>"; };
+		848D54DD2695A9C4002476E5 /* OtaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtaViewController.m; sourceTree = "<group>"; };
 		849A22CA24F5FFB30091235F /* MeasureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		849A22CB24F5FFB30091235F /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		849A22D124F6619D0091235F /* DeviceMeasureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceMeasureCell.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				846442D424EB7D77006297A8 /* main.m */,
 				84016C0E24EE0D07004FE390 /* MainViewController.h */,
 				84016C1024EE0D07004FE390 /* MainViewController.m */,
+				848D54DC2695A9C4002476E5 /* OtaViewController.h */,
+				848D54DD2695A9C4002476E5 /* OtaViewController.m */,
 				849A22CA24F5FFB30091235F /* MeasureViewController.h */,
 				849A22CB24F5FFB30091235F /* MeasureViewController.m */,
 			);
@@ -273,6 +278,7 @@
 				849A22D324F6619D0091235F /* DeviceMeasureCell.m in Sources */,
 				84016C1F24EE0D43004FE390 /* DeviceConnectCell.m in Sources */,
 				84016C1224EE0D07004FE390 /* MainViewController.m in Sources */,
+				848D54DE2695A9C4002476E5 /* OtaViewController.m in Sources */,
 				849A22CC24F5FFB30091235F /* MeasureViewController.m in Sources */,
 				846442C424EB7D76006297A8 /* AppDelegate.m in Sources */,
 				84016C2124EE0D43004FE390 /* UIDeviceCategory.m in Sources */,
@@ -426,7 +432,7 @@
 					"$(PROJECT_DIR)/XsensDotExampleiOS",
 				);
 				INFOPLIST_FILE = XsensDotExampleiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,7 +456,7 @@
 					"$(PROJECT_DIR)/XsensDotExampleiOS",
 				);
 				INFOPLIST_FILE = XsensDotExampleiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

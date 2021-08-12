@@ -16,18 +16,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XsensDotFilterProfile : NSObject
 
 /**
- *  @brief The filter profile index
+ *  The filter profile index
  *  @discussion We currently have two types of index: 0 and 1
  */
 - (UInt8)filterIndex;
 /**
- *  @brief The filter profile name
+ *  The filter profile name
  *  @discussion We currently have two types of name: "General" and "Dynamic"
  */
 - (NSString *)filterName;
 
 /**
- *  @brief Constructor method
+ *  Constructor method
  *  @param name The filter profile name
  *  @param index The filter profile index
  */

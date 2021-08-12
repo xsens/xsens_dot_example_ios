@@ -79,7 +79,8 @@ typedef NS_ENUM(NSInteger,XSBleDevicePayloadMode)
     XSBleDevicePayloadRateQuantitiesNoMag,
     XSBleDevicePayloadCustomMode1, //new payload
     XSBleDevicePayloadCustomMode2, //new payload
-    XSBleDevicePayloadCustomMode3 //new payload
+    XSBleDevicePayloadCustomMode3, //new payload
+    XSBleDevicePayloadCustomMode4 //new payload
 };
 
 /**
@@ -216,6 +217,9 @@ extern NSString * const kXsensDotNotificationDeviceLoggingPath;
 
 /// Notification of Recording state changed , when connect sensor this will be notify.
 extern NSString * const kXsensDotNotificationDeviceRecordingStateUpdate;
+
+/// Notification of sensor connection has been done. All properties initialized.
+extern NSString * const kXsensDotNotificationDeviceInitialized;
 
 //@"Xsens DOT"
 extern NSString * const kXsensDotDeviceSpecialName;
