@@ -7,7 +7,6 @@
 //
 
 #import "DeviceMeasureCell.h"
-#import "UIViewCategory.h"
 
 @interface DeviceMeasureCell ()
 

@@ -2,12 +2,11 @@
 //  OtaViewController.m
 //  XsensDotExampleiOS
 //
-//  Created by admin on 2021/7/7.
+//  Created by Jayson on 2021/7/7.
 //  Copyright © 2021 Xsens. All rights reserved.
 //
 
 #import "OtaViewController.h"
-#import "UIViewCategory.h"
 #import <MBProgressHUD.h>
 #import <XsensDotSdk/XsensDotOtaManager.h>
 

@@ -54,65 +54,65 @@
 
 - (void)subViewsSetup
 {
-    self.backgroundColor = UIColorClear;
+    self.backgroundColor = UIColor.clearColor;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     CGFloat horizontalEdge = 16;
     CGFloat verticalEdge = 12;
+    CGFloat screenWidth = [[UIScreen mainScreen] bounds].size.width;
     
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(horizontalEdge, verticalEdge, 200, 20)];
-    nameLabel.font = [UIFont xsSemiBoldFont:16.f];
-    nameLabel.textColor = UIColorWhite;
+    nameLabel.font = [UIFont systemFontOfSize:16.f weight:UIFontWeightBold];
+    nameLabel.textColor = UIColor.blackColor;
     self.nameLabel = nameLabel;
     
-    
     UILabel *addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(horizontalEdge, nameLabel.bottom + 5, 200, 20)];
-    addressLabel.font = [UIFont xsRegularFont:14.f];
-    addressLabel.textColor = UIColorLightGray;
+    addressLabel.font = [UIFont systemFontOfSize:14.f];
+    addressLabel.textColor = UIColor.grayColor;
     self.addressLabel = addressLabel;
     
-    UILabel *progressLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - horizontalEdge - 40, nameLabel.bottom, 40, 20)];
+    UILabel *progressLabel = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth - horizontalEdge - 40, nameLabel.bottom, 40, 20)];
     progressLabel.textAlignment = NSTextAlignmentRight;
-    progressLabel.textColor = UIColorWhite;
-    progressLabel.font = [UIFont xsRegularFont:14.f];
+    progressLabel.textColor = UIColor.blackColor;
+    progressLabel.font = [UIFont systemFontOfSize:14.f];;
     progressLabel.text = @"0%";
     progressLabel.hidden = YES;
     self.progressLabel = progressLabel;
     
-    UILabel *statusLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - horizontalEdge - 100, nameLabel.bottom, 100, 20)];
-    statusLabel.textColor = UIColorWhite;
-    statusLabel.font = [UIFont xsRegularFont:14.f];
+    UILabel *statusLabel = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth - horizontalEdge - 100, nameLabel.bottom, 100, 20)];
+    statusLabel.textColor = UIColor.blackColor;
+    statusLabel.font = [UIFont systemFontOfSize:14.f];;
     statusLabel.text = @"Processing";
     statusLabel.hidden = YES;
     self.statusLabel = statusLabel;
     
-    UIActivityIndicatorView *processingIndicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    UIActivityIndicatorView *processingIndicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
     processingIndicatorView.frame = CGRectMake(0, 0, 20, 20);
-    processingIndicatorView.origin = CGPointMake(SCREEN_WIDTH - horizontalEdge - 20, nameLabel.bottom);
+    processingIndicatorView.origin = CGPointMake(screenWidth - horizontalEdge - 20, nameLabel.bottom);
     processingIndicatorView.hidden = YES;
     self.processingIndicatorView = processingIndicatorView;
     
-    UIImageView *finishImageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - horizontalEdge - 20, nameLabel.bottom, 20, 20)];
+    UIImageView *finishImageView = [[UIImageView alloc]initWithFrame:CGRectMake(screenWidth - horizontalEdge - 20, nameLabel.bottom, 20, 20)];
     finishImageView.image = [UIImage imageNamed:@"ic_done"];
     finishImageView.hidden = YES;
     self.finishImageView = finishImageView;
     
     UIButton *reWriteButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    reWriteButton.frame = CGRectMake(SCREEN_WIDTH - horizontalEdge - 60, nameLabel.bottom, 60, 20);
+    reWriteButton.frame = CGRectMake(screenWidth - horizontalEdge - 60, nameLabel.bottom, 60, 20);
     
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:@"Rewrite"];
     NSRange titleRange = {0,[title length]};
     [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
     [reWriteButton setAttributedTitle:title forState:UIControlStateNormal];
-    reWriteButton.tintColor = UIColorRed;
+    reWriteButton.tintColor = UIColor.redColor;
     reWriteButton.hidden = YES;
     self.reWriteButton = reWriteButton;
     
     
-    UIProgressView *progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(horizontalEdge, addressLabel.bottom + 5, SCREEN_WIDTH - 2 * horizontalEdge, 10)];
+    UIProgressView *progressView = [[UIProgressView alloc]initWithFrame:CGRectMake(horizontalEdge, addressLabel.bottom + 5, screenWidth - 2 * horizontalEdge, 10)];
     progressView.progressViewStyle = UIProgressViewStyleBar;
-    progressView.progressTintColor = nCommonOrangeColor;
-    progressView.trackTintColor = UIColorWhite;
+    progressView.progressTintColor = UIColor.orangeColor;
+    progressView.trackTintColor = UIColor.grayColor;
     progressView.progress = 0.f;
     progressView.transform = CGAffineTransformMakeScale(1.f, 3.f);
     self.progressView = progressView;
@@ -126,7 +126,6 @@
     [self.contentView addSubview:processingIndicatorView];
     [self.contentView addSubview:reWriteButton];
     
-//    [self cellStopped];
 }
 
 - (void)setDevice:(XsensDotDevice *)device
@@ -162,19 +161,11 @@
 {
     self.progressLabel.hidden = YES;
     self.statusLabel.hidden = NO;
-    self.statusLabel.textColor = UIColorWhite;
+    self.statusLabel.textColor = UIColor.blackColor;
     self.statusLabel.text = @"Processing";
     self.finishImageView.hidden = YES;
     self.processingIndicatorView.hidden = NO;
     [self.processingIndicatorView startAnimating];
-}
-
-- (void)cellWriteToSensor
-{
-    [self.processingIndicatorView stopAnimating];
-    self.processingIndicatorView.hidden = YES;
-    self.statusLabel.hidden = NO;
-    self.statusLabel.text = @"Write to sensor...";
 }
 
 - (void)cellFinished
@@ -184,7 +175,7 @@
         self.statusLabel.hidden = NO;
         self.progressLabel.hidden = YES;
         self.statusLabel.text = @"Finished";
-        self.statusLabel.textColor = UIColorHex(0x66cc66);
+        self.statusLabel.textColor = UIColor.greenColor;
         self.processingIndicatorView.hidden = YES;
         self.finishImageView.hidden = NO;
         self.progress = 0;
@@ -195,7 +186,7 @@
 {
     self.statusLabel.hidden = NO;
     self.reWriteButton.hidden = NO;
-    self.statusLabel.textColor = UIColorRed;
+    self.statusLabel.textColor = UIColor.redColor;
     self.statusLabel.text = @"Write failed.";
 }
 
@@ -203,7 +194,7 @@
 {
     self.statusLabel.hidden = NO;
     self.progressLabel.hidden = YES;
-    self.statusLabel.textColor = UIColorRed;
+    self.statusLabel.textColor = UIColor.redColor;
     [self.processingIndicatorView stopAnimating];
     self.processingIndicatorView.hidden = YES;
     self.statusLabel.text = @"MFM failed";
@@ -214,7 +205,7 @@
     self.disconnectedFlag = YES;
     self.statusLabel.hidden = NO;
     self.progressLabel.hidden = YES;
-    self.statusLabel.textColor = UIColorRed;
+    self.statusLabel.textColor = UIColor.redColor;
     self.processingIndicatorView.hidden = YES;
     self.finishImageView.hidden = YES;
     self.statusLabel.text = @"Disconnected";
@@ -226,7 +217,7 @@
     self.statusLabel.hidden = NO;
     self.progressLabel.hidden = YES;
     self.progressView.progress = 0;
-    self.statusLabel.textColor = UIColorWhite;
+    self.statusLabel.textColor = UIColor.redColor;
     self.statusLabel.text = @"Stopped";
 }
 

@@ -8,7 +8,6 @@
 
 #import "MeasureViewController.h"
 #import "DeviceMeasureCell.h"
-#import "UIViewCategory.h"
 #import <XsensDotSdk/XsensDotSyncManager.h>
 #import <XsensDotSdk/XsensDotDefine.h>
 #import <MBProgressHUD.h>
@@ -157,7 +156,7 @@
     tableView.dataSource = self;
     tableView.clipsToBounds = YES;
     tableView.scrollEnabled = YES;
-    tableView.autoresizingMask = UIViewAutoresizingFlexibleSize;
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.rowHeight = DeviceMeasureCell.cellHeight;
     tableView.delegate = self;
     tableView.hidden = YES;

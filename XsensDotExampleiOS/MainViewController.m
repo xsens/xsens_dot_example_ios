@@ -8,10 +8,9 @@
 
 #import "MainViewController.h"
 #import "DeviceConnectCell.h"
-#import "UIDeviceCategory.h"
-#import "UIViewCategory.h"
 #import "MeasureViewController.h"
 #import "OtaViewController.h"
+#import "MfmViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import <XsensDotSdk/XsensDotDevice.h>
 #import <XsensDotSdk/XsensDotLog.h>
@@ -89,7 +88,11 @@
         [self handleOta];
     }];
     
-    NSArray *menus = [[NSArray alloc]initWithObjects:measure, ota, nil];
+    UIAction *mfm = [UIAction actionWithTitle:@"MFM" image:nil identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
+        [self handleMfm];
+    }];
+    
+    NSArray *menus = [[NSArray alloc]initWithObjects:measure, ota, mfm, nil];
     
     UIMenu *menu = [UIMenu menuWithTitle:@"" children:menus];
     
@@ -257,6 +260,31 @@
             OtaViewController *otaViewController = [OtaViewController new];
             otaViewController.device = self.connectList.firstObject;
             [self.navigationController pushViewController:otaViewController animated:YES];
+        }
+        else
+        {
+            [self showNotInitialized];
+        }
+        
+    }
+}
+
+/**
+ * This is the demo for  MFM function
+ */
+- (void)handleMfm
+{
+    if (self.connectList.count == 0)
+    {
+        [self showUnconnectHud];
+    }
+    else
+    {
+        if ([self.connectList.firstObject isInitialized])
+        {
+            MfmViewController *mfmViewController = [MfmViewController new];
+            mfmViewController.mfmDevices = self.connectList;
+            [self.navigationController pushViewController:mfmViewController animated:YES];
         }
         else
         {

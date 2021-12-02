@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/XsensDotDevice.h</key>
 		<data>
-		R/ByycZUM+1+qnXoyE5R8k649eo=
+		UA2h0VTGRdqzvsFQv+pHmgPoNbc=
 		</data>
 		<key>Headers/XsensDotDevicePool.h</key>
 		<data>
@@ -66,11 +66,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		utMxuoBNE9mFSaGi24Coig3gbBQ=
+		UomcTCe2ZaAmGxYZDsixLbPDI8A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		WId34FqHsij5v5BEEB17tOY+Suk=
+		</data>
+		<key>file_header.mtb</key>
+		<data>
+		5PALSZyqEu2uEHqemHcBKaMz5jE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -100,7 +104,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+ypUnmCry94+6fPaDf/kcAWpJWi2ouT09gRr5vb37ic=
+			O6xZOV1DjzRJHYkJGu6DMhjSdrfz6GRCna55dYEIJjw=
 			</data>
 		</dict>
 		<key>Headers/XsensDotDevicePool.h</key>
@@ -185,6 +189,13 @@
 			<key>hash2</key>
 			<data>
 			V3O5BBKUWgL/EX2ZxFT/BGk+MjHqMlytdHR5XRBizEU=
+			</data>
+		</dict>
+		<key>file_header.mtb</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lVAClcJwn9/1rWSfq3mkF3XlXb4mltH75hyZEBckGys=
 			</data>
 		</dict>
 	</dict>

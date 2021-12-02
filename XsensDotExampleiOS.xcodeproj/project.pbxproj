@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,10 @@
 		848D54DE2695A9C4002476E5 /* OtaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D54DD2695A9C4002476E5 /* OtaViewController.m */; };
 		849A22CC24F5FFB30091235F /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A22CB24F5FFB30091235F /* MeasureViewController.m */; };
 		849A22D324F6619D0091235F /* DeviceMeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849A22D224F6619D0091235F /* DeviceMeasureCell.m */; };
+		84A3D3C92755D3C700CB5B9B /* MfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3D3C82755D3C700CB5B9B /* MfmViewController.m */; };
+		84A3D3CF2755FEC600CB5B9B /* DeviceMfmCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3D3CE2755FEC600CB5B9B /* DeviceMfmCell.m */; };
+		84A3D3D22756017400CB5B9B /* XsensDotSdkMfm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A3D3D02756015200CB5B9B /* XsensDotSdkMfm.framework */; platformFilter = ios; };
+		84A3D3D32756017400CB5B9B /* XsensDotSdkMfm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84A3D3D02756015200CB5B9B /* XsensDotSdkMfm.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				84A3D3D32756017400CB5B9B /* XsensDotSdkMfm.framework in Embed Frameworks */,
 				84016C0C24ED36E2004FE390 /* XsensDotSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -63,6 +68,12 @@
 		849A22CB24F5FFB30091235F /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		849A22D124F6619D0091235F /* DeviceMeasureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceMeasureCell.h; sourceTree = "<group>"; };
 		849A22D224F6619D0091235F /* DeviceMeasureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceMeasureCell.m; sourceTree = "<group>"; };
+		84A3D3C72755D3C700CB5B9B /* MfmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MfmViewController.h; sourceTree = "<group>"; };
+		84A3D3C82755D3C700CB5B9B /* MfmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MfmViewController.m; sourceTree = "<group>"; };
+		84A3D3CD2755FEC600CB5B9B /* DeviceMfmCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceMfmCell.h; sourceTree = "<group>"; };
+		84A3D3CE2755FEC600CB5B9B /* DeviceMfmCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceMfmCell.m; sourceTree = "<group>"; };
+		84A3D3D02756015200CB5B9B /* XsensDotSdkMfm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XsensDotSdkMfm.framework; sourceTree = "<group>"; };
+		84ECB89827577720009894F9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		CC6AE950E7672D8F236FB417 /* Pods-XsensDotExampleiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XsensDotExampleiOS.debug.xcconfig"; path = "Target Support Files/Pods-XsensDotExampleiOS/Pods-XsensDotExampleiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F9432425F24F0B5EB2526E1D /* Pods-XsensDotExampleiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XsensDotExampleiOS.release.xcconfig"; path = "Target Support Files/Pods-XsensDotExampleiOS/Pods-XsensDotExampleiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84016C0B24ED36E2004FE390 /* XsensDotSdk.framework in Frameworks */,
+				84A3D3D22756017400CB5B9B /* XsensDotSdkMfm.framework in Frameworks */,
 				4A6AC05A5A2123F92DA0A724 /* libPods-XsensDotExampleiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +104,8 @@
 		84016C1424EE0D42004FE390 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84A3D3CD2755FEC600CB5B9B /* DeviceMfmCell.h */,
+				84A3D3CE2755FEC600CB5B9B /* DeviceMfmCell.m */,
 				84016C1624EE0D42004FE390 /* DeviceConnectCell.h */,
 				84016C1524EE0D42004FE390 /* DeviceConnectCell.m */,
 				849A22D124F6619D0091235F /* DeviceMeasureCell.h */,
@@ -132,9 +146,11 @@
 		846442C124EB7D76006297A8 /* XsensDotExampleiOS */ = {
 			isa = PBXGroup;
 			children = (
+				84A3D3D42756098400CB5B9B /* Header */,
 				84016C1A24EE0D42004FE390 /* UIKit */,
 				84016C1424EE0D42004FE390 /* View */,
 				84016C0924ED36D5004FE390 /* XsensDotSdk.framework */,
+				84A3D3D02756015200CB5B9B /* XsensDotSdkMfm.framework */,
 				846442C224EB7D76006297A8 /* AppDelegate.h */,
 				846442C324EB7D76006297A8 /* AppDelegate.m */,
 				846442CB24EB7D76006297A8 /* Main.storyboard */,
@@ -146,10 +162,20 @@
 				84016C1024EE0D07004FE390 /* MainViewController.m */,
 				848D54DC2695A9C4002476E5 /* OtaViewController.h */,
 				848D54DD2695A9C4002476E5 /* OtaViewController.m */,
+				84A3D3C72755D3C700CB5B9B /* MfmViewController.h */,
+				84A3D3C82755D3C700CB5B9B /* MfmViewController.m */,
 				849A22CA24F5FFB30091235F /* MeasureViewController.h */,
 				849A22CB24F5FFB30091235F /* MeasureViewController.m */,
 			);
 			path = XsensDotExampleiOS;
+			sourceTree = "<group>";
+		};
+		84A3D3D42756098400CB5B9B /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				84ECB89827577720009894F9 /* PrefixHeader.pch */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		BE19A7D4E54B1B1A353FC3A4 /* Frameworks */ = {
@@ -282,6 +308,8 @@
 				849A22CC24F5FFB30091235F /* MeasureViewController.m in Sources */,
 				846442C424EB7D76006297A8 /* AppDelegate.m in Sources */,
 				84016C2124EE0D43004FE390 /* UIDeviceCategory.m in Sources */,
+				84A3D3C92755D3C700CB5B9B /* MfmViewController.m in Sources */,
+				84A3D3CF2755FEC600CB5B9B /* DeviceMfmCell.m in Sources */,
 				846442D524EB7D77006297A8 /* main.m in Sources */,
 				84016C2224EE0D43004FE390 /* UIViewCategory.m in Sources */,
 			);
@@ -425,18 +453,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = T268ZFRZ4A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XsensDotExampleiOS",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Header/PrefixHeader.pch";
 				INFOPLIST_FILE = XsensDotExampleiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsens.XsensDotExampleiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -449,18 +481,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = T268ZFRZ4A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XsensDotExampleiOS",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Header/PrefixHeader.pch";
 				INFOPLIST_FILE = XsensDotExampleiOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xsens.XsensDotExampleiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

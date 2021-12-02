@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The Serial number
  */
-@property (assign, nonatomic) UInt64 serialNumber;
+@property (strong, nonatomic) NSString *serialNumber;
 
 /**
  *  The plotting(real- time streaming) enable flag

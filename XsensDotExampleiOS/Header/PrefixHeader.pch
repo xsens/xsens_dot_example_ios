@@ -2,14 +2,14 @@
 //  PrefixHeader.pch
 //  XsensDotExampleiOS
 //
-//  Created by admin on 2021/12/1.
+//  Created by Jayson on 2021/12/1.
 //  Copyright © 2021 Xsens. All rights reserved.
 //
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "UIDeviceCategory.h"
+#import "UIViewCategory.h"
 
 #endif /* PrefixHeader_pch */

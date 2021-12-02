@@ -7,7 +7,6 @@
 //
 
 #import "DeviceConnectCell.h"
-#import "UIViewCategory.h"
 #import <XsensDotSdk/XsensDotDevice.h>
 
 @interface DeviceConnectCell ()

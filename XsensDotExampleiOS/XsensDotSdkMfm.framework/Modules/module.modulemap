@@ -1,0 +1,6 @@
+framework module XsensDotSdkMfm {
+  umbrella header "XsensDotSdkMfm.h"
+
+  export *
+  module * { export * }
+}

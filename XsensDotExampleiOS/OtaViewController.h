@@ -2,7 +2,7 @@
 //  OtaViewController.h
 //  XsensDotExampleiOS
 //
-//  Created by admin on 2021/7/7.
+//  Created by Jayson on 2021/7/7.
 //  Copyright © 2021 Xsens. All rights reserved.
 //
 
